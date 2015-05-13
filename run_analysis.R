@@ -1,7 +1,7 @@
 ##getting mean and standard deviation variables vector
 fedata<-read.table("./data/UCI HAR Dataset/features.txt")
 clean_fedata<-tolower(gsub("\\(|\\)","",fedata[ ,2]))
-ids<-grep("(mean|std)",fedata$V2,ignore.case=TRUE)
+ids<-grep("(\\Wmean\\W|std)",fedata$V2,ignore.case=TRUE) 
 renamev<-clean_fedata[ids]
 
 ##getting activity label data
@@ -26,7 +26,7 @@ mergeD<-rbind(traindata,testdata)
 names(mergeD)<-c("activity","subject",renamev)
 mergeD$activity<-acts[mergeD[,"activity"]]
 
-ndata<-aggregate(mergeD[,3:88],mergeD[,c("activity","subject")],mean)
+ndata<-aggregate(mergeD[,3:68],mergeD[,c("activity","subject")],mean)
 
 write.table(ndata,file="./data/cleanUCIdata.txt",row.name=FALSE)
 
