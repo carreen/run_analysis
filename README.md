@@ -15,9 +15,10 @@ This project works with the data collected from the accelerometers from the Sams
 2. download the data from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 3. put the data folder under ./data directory
 4. run the script, a clean data named "cleanUCIdata.txt" will be generated under data directory
+   each record contains activity, subject identifier and 73 means of the features
 
 ## how run_analysis.R works
-1. getting features data from 'features.txt', including reading, filtering only mean and standard deviation variables, also altering the illegal characters(e.g., '\'). store the ids of features in 'renamev' as vector. 
+1. getting features data from 'features.txt', including reading, filtering only mean and standard deviation variables (not include mean frequency or angle mean), also altering the illegal characters(e.g., '\'). store the ids of features in 'renamev' as vector. 
 2. getting acitivity label data from 'activity_labels.txt', store in 'acts' as 2 variable, 6 objcets data frame.
 3. reading test data from 3 txt files, use 'ids' from step 1 to filter the features. And finally cbind the variables
 4. repeat step 3 with training data
